@@ -1,0 +1,19 @@
+{
+  "food": {
+    "donat": {
+      "image": "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
+      "title": "Sweets",
+      "Item": "12"
+    },
+    "iceCream": {
+      "image": "https://m.buro247.sg/images/lifestyle/ice-cream-cover.jpg",
+      "title": "Beverages",
+      "item": "42"
+    },
+    "banana": {
+      "image": "https://pbs.twimg.com/media/DrjlDZnX0AAK8xJ.jpg",
+      "title": "Beverages",
+      "item": "42"
+    }
+  }
+}
