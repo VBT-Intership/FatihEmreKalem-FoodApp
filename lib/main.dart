@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import "viewModel/view_model.dart";
 import 'screens/home.dart';
+import 'screens/productDetail.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       title: "FoodApp",
-      home: HomeScreen(),
+      home: ProductDetail(),
+      // home: HomeScreen(),
     );
   }
 }

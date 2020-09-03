@@ -28,30 +28,85 @@ class HomeScreen extends StatelessWidget {
           children: [
             headerArea(context),
             horizontalCardList(context),
-            Expanded(
-              child: Container(
-                color: Colors.grey[100],
-                width: double.infinity,
-                child: Column(
-                  children: [
-                    populerCardHeaderArea(),
-                    Expanded(
-                      child: Container(
-                        child: ListView(
-                          children: [
-                            PopulerCard(),
-                            PopulerCard(),
-                            PopulerCard(),
-                            PopulerCard(),
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            )
+            populerCardArea
           ],
+        ),
+      ),
+    );
+  }
+
+  Container headerArea(BuildContext context) {
+    return Container(
+      child: Padding(
+        padding:
+            const EdgeInsets.only(top: 15, left: 35, right: 30, bottom: 25),
+        child: Row(
+          children: [
+            Text(
+              "What do you want \n to eat today?",
+              style: headerTextStyle,
+            ),
+            Spacer(),
+            searchButton(context)
+          ],
+        ),
+      ),
+    );
+  }
+
+  TextStyle get headerTextStyle => TextStyle(
+      color: LIGHT_BLACK,
+      fontSize: 30,
+      letterSpacing: 1.3,
+      fontWeight: FontWeight.bold);
+
+  Container searchButton(BuildContext context) {
+    return Container(
+        width: PhoneScreen(context).width * 0.13,
+        height: PhoneScreen(context).width * 0.13,
+        decoration: searchButton_decoration,
+        child: Icon(AntDesign.search1));
+  }
+
+  BoxDecoration get searchButton_decoration {
+    return BoxDecoration(
+        color: WHITE,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+              color: Colors.black12,
+              spreadRadius: 0.01,
+              blurRadius: 30,
+              offset: Offset(0, 0.1)),
+        ]);
+  }
+
+  Widget horizontalCardList(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 15.0),
+      child: Container(
+        width: double.infinity,
+        height: PhoneScreen(context).height * 0.22,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            HorizontalCard(),
+            HorizontalCard(),
+            HorizontalCard(),
+            HorizontalCard(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Expanded get populerCardArea {
+    return Expanded(
+      child: Container(
+        color: Colors.grey[100],
+        width: double.infinity,
+        child: Column(
+          children: [populerCardHeaderArea(), popularaCardLists()],
         ),
       ),
     );
@@ -88,67 +143,18 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget horizontalCardList(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom:15.0),
+  Expanded popularaCardLists() {
+    return Expanded(
       child: Container(
-        width: double.infinity,
-        height: PhoneScreen(context).height * 0.22,
         child: ListView(
-          scrollDirection: Axis.horizontal,
           children: [
-            HorizontalCard(),
-            HorizontalCard(),
-            HorizontalCard(),
-            HorizontalCard(),
+            PopulerCard(),
+            PopulerCard(),
+            PopulerCard(),
+            PopulerCard(),
           ],
         ),
       ),
     );
   }
-
-  Container headerArea(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.only(top: 15, left: 35, right: 30,bottom: 25),
-        child: Row(
-          children: [
-            Text(
-              "What do you want \n to eat today?",
-              style: headerTextStyle,
-            ),
-            Spacer(),
-            searchButton(context)
-          ],
-        ),
-      ),
-    );
-  }
-
-  Container searchButton(BuildContext context) {
-    return Container(
-        width: PhoneScreen(context).width * 0.13,
-        height: PhoneScreen(context).width * 0.13,
-        decoration: searchButton_decoration(),
-        child: Icon(AntDesign.search1));
-  }
-
-  BoxDecoration searchButton_decoration() {
-    return BoxDecoration(
-        color: WHITE,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.black12,
-              spreadRadius: 0.01,
-              blurRadius: 30,
-              offset: Offset(0, 0.1)),
-        ]);
-  }
-
-  TextStyle get headerTextStyle => TextStyle(
-      color: LIGHT_BLACK,
-      fontSize: 30,
-      letterSpacing: 1.3,
-      fontWeight: FontWeight.bold);
 }
