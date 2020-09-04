@@ -25,67 +25,34 @@ class ProductDetail extends StatelessWidget {
       body: Container(
         child: Column(
           children: [
-            Expanded(
-              flex: 6,
-              child: Container(
-                width: double.infinity,
-                child: list(context),
-              ),
-            ),
-            Expanded(
-              flex: 3,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    right: 22.0, left: 22, top: 10, bottom: 10),
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: GRAY_TEXT),
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 10, left: 10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        productCardHeaderArea(),
-                        productDesc(),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      right: 22.0, left: 22, top: 10, bottom: 10),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              counterButton(Icons.exposure_neg_1),
-                              productCounterText(),
-                              counterButton(Icons.exposure_plus_1),
-                            ],
-                          ),
-                        ),
-                        // Spacer(flex:5),
-                        Expanded(child: productSendButton())
-                      ]),
-                ),
-              ),
-            )
+            productImageList(context),
+            productAbout(),
+            productBuyArea()
           ],
         ),
       ),
     );
   }
+
+  Expanded productImageList(BuildContext context) {
+    return Expanded(
+      flex: 6,
+      child: Container(
+        width: double.infinity,
+        child: list(context),
+      ),
+    );
+  }
+
+  Widget list(context) => ListView(
+        padding: const EdgeInsets.only(right: 15, left: 15),
+        scrollDirection: Axis.horizontal,
+        children: [
+          productCard(context),
+          productCard(context),
+          productCard(context),
+        ],
+      );
 
   Padding productCounterText() {
     return Padding(
@@ -97,36 +64,34 @@ class ProductDetail extends StatelessWidget {
     );
   }
 
-  RaisedButton productSendButton() {
-    return RaisedButton(
-      onPressed: null,
-      textColor: WHITE,
-      color: Colors.blue,
-      disabledColor: Colors.blue,
-      child: Text(
-        "Gas, Lanjutkan",
-        style: TextStyle(color: WHITE),
-      ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-    );
-  }
-
-  DottedBorder counterButton(IconData icon) {
-    return DottedBorder(
-      color: GRAY_TEXT,
-      borderType: BorderType.RRect,
-      radius: Radius.circular(12),
-      padding: EdgeInsets.all(8),
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(12)),
-        child: Icon(icon, color: GRAY_TEXT),
+  Expanded productAbout() {
+    return Expanded(
+      flex: 3,
+      child: Padding(
+        padding:
+            const EdgeInsets.only(right: 22.0, left: 22, top: 10, bottom: 10),
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: GRAY_TEXT),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(right: 10, left: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                productCardHeader(),
+                productDesc(),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
 
-  Column productCardHeaderArea() {
+  Column productCardHeader() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -176,6 +141,11 @@ class ProductDetail extends StatelessWidget {
     );
   }
 
+  Text productPrice() {
+    return Text("Rp 12.000",
+        style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold));
+  }
+
   Text productDesc() {
     return Text(
       "lorem ipsum dolor sit amet, cosectetur elit, sed do eiusmod tempor",
@@ -183,36 +153,77 @@ class ProductDetail extends StatelessWidget {
     );
   }
 
-  Text productPrice() {
-    return Text("Rp 12.000",
-        style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold));
+  Expanded productBuyArea() {
+    return Expanded(
+      flex: 1,
+      child: Container(
+        child: Padding(
+          padding:
+              const EdgeInsets.only(right: 22.0, left: 22, top: 10, bottom: 10),
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  counterButton(Icons.exposure_neg_1),
+                  productCounterText(),
+                  counterButton(Icons.exposure_plus_1),
+                ],
+              ),
+            ),
+            // Spacer(flex:5),
+            Expanded(child: productSendButton())
+          ]),
+        ),
+      ),
+    );
   }
 
-  Widget list(context) => ListView(
-        padding: const EdgeInsets.only(right: 15, left: 15),
-        scrollDirection: Axis.horizontal,
-        children: [
-          productCard(context),
-          productCard(context),
-          productCard(context),
-        ],
-      );
-}
+  RaisedButton productSendButton() {
+    return RaisedButton(
+      onPressed: null,
+      textColor: WHITE,
+      color: Colors.blue,
+      disabledColor: Colors.blue,
+      child: Text(
+        "Gas, Lanjutkan",
+        style: TextStyle(color: WHITE),
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+    );
+  }
 
-Widget productCard(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.only(left: 15, right: 15),
-    child: Container(
-        width: PhoneScreen(context).width * 0.85,
-        height: PhoneScreen(context).height * 0.6,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: RED,
-          image: DecorationImage(
-              alignment: Alignment.center,
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/09/b8/5d/09b85d4229cf6fe420e5f9e7f2bbfd32.jpg"),
-              fit: BoxFit.cover),
-        )),
-  );
+  DottedBorder counterButton(IconData icon) {
+    return DottedBorder(
+      color: GRAY_TEXT,
+      borderType: BorderType.RRect,
+      radius: Radius.circular(12),
+      padding: EdgeInsets.all(8),
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+        child: Icon(icon, color: GRAY_TEXT),
+      ),
+    );
+  }
+
+  Widget productCard(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 15, right: 15),
+      child: Container(
+          width: PhoneScreen(context).width * 0.85,
+          height: PhoneScreen(context).height * 0.6,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: RED,
+            image: DecorationImage(
+                alignment: Alignment.center,
+                image: NetworkImage(
+                    "https://i.pinimg.com/originals/09/b8/5d/09b85d4229cf6fe420e5f9e7f2bbfd32.jpg"),
+                fit: BoxFit.cover),
+          )),
+    );
+  }
 }
