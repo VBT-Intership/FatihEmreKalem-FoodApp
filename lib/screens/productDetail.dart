@@ -11,7 +11,9 @@ class ProductDetail extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: TRANSPARENT,
         elevation: 0,
-        leading: Icon(Icons.chevron_left, color: LIGHT_BLACK),
+        leading: GestureDetector(
+            onTap: () => Navigator.pop(context),
+            child: Icon(Icons.chevron_left, color: LIGHT_BLACK)),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
@@ -48,9 +50,9 @@ class ProductDetail extends StatelessWidget {
         padding: const EdgeInsets.only(right: 15, left: 15),
         scrollDirection: Axis.horizontal,
         children: [
-          productCard(context),
-          productCard(context),
-          productCard(context),
+          productCardImage(context),
+          productCardImage(context),
+          productCardImage(context),
         ],
       );
 
@@ -209,7 +211,7 @@ class ProductDetail extends StatelessWidget {
     );
   }
 
-  Widget productCard(BuildContext context) {
+  Widget productCardImage(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15),
       child: Container(
@@ -220,10 +222,14 @@ class ProductDetail extends StatelessWidget {
             color: RED,
             image: DecorationImage(
                 alignment: Alignment.center,
-                image: NetworkImage(
-                    "https://i.pinimg.com/originals/09/b8/5d/09b85d4229cf6fe420e5f9e7f2bbfd32.jpg"),
+                image: productCardImageLink(),
                 fit: BoxFit.cover),
           )),
     );
+  }
+
+  NetworkImage productCardImageLink() {
+    return NetworkImage(
+        "https://i.pinimg.com/originals/09/b8/5d/09b85d4229cf6fe420e5f9e7f2bbfd32.jpg");
   }
 }

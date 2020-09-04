@@ -10,45 +10,24 @@ class PopulerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: WHITE,
-        ),
-        child: Row(
-          children: [
-            populerCardImage(context),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      populerCardHeader,
-                      populerCardTags,
-                      populerCardDetail,
-                    ],
-                  ),
-                ),
-              ),
-            )
-          ],
+      child: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, '/productDetail');
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: WHITE,
+          ),
+          child: Row(
+            children: [
+              populerCardImage(context),
+              populerCardAbout(),
+            ],
+          ),
         ),
       ),
     );
-  }
-
-  Text get populerCardHeader {
-    return Text(
-      "Banana Goreng",
-      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-    );
-  }
-
-  PopulerCardTag get populerCardTags {
-    return PopulerCardTag(tagText1: "Gorengan", tagText2: "Makanan Ringan");
   }
 
   Widget populerCardImage(BuildContext context) {
@@ -70,6 +49,36 @@ class PopulerCard extends StatelessWidget {
   NetworkImage get networkImage {
     return NetworkImage(
         "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg");
+  }
+
+  Expanded populerCardAbout() {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              populerCardHeader,
+              populerCardTags,
+              populerCardDetail,
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Text get populerCardHeader {
+    return Text(
+      "Banana Goreng",
+      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+    );
+  }
+
+  PopulerCardTag get populerCardTags {
+    return PopulerCardTag(tagText1: "Gorengan", tagText2: "Makanan Ringan");
   }
 
   Row get populerCardDetail {

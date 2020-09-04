@@ -7,13 +7,18 @@ class HorizontalCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
-      child: Container(
-        width: PhoneScreen(context).width * 0.30,
-        child: Column(
-          children: [
-            cardImage,
-            cardText,
-          ],
+      child: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, '/productDetail');
+        },
+        child: Container(
+          width: PhoneScreen(context).width * 0.30,
+          child: Column(
+            children: [
+              cardImage,
+              cardText,
+            ],
+          ),
         ),
       ),
     );
