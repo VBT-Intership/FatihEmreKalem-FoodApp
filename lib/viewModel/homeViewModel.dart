@@ -1,11 +1,14 @@
 import 'package:foodApp/view/home/Ihome.dart';
 import 'package:flutter/material.dart';
+import '../services/httpSweetService.dart';
 
-abstract class HomeScreenModel extends State<HomeScreenView>{
+abstract class HomeScreenModel extends State<HomeScreenView>
+    with HttpSweetService {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    getSweetList;
+    // print(getSweetList.then((value) => print(value.length)));
   }
- //...
+  //...
 }

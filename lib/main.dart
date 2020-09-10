@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'view/productDetail.dart';
 import 'view/home/Ihome.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -15,7 +16,9 @@ class MyApp extends StatelessWidget {
         title: "FoodApp",
         onGenerateRoute: (settings) {
           if (settings.name == "/productDetail") {
-            return pageRouteBuilder(ProductDetail());
+            return pageRouteBuilder(ProductDetail(
+              sweetProduct: settings.arguments,
+            ));
           }
           return MaterialPageRoute(builder: (context) => HomeScreenView());
         });

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodApp/model/sweetModel.dart';
 import '../../utils/color.dart';
 import '../../utils/size.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
@@ -88,16 +89,45 @@ class HomeScreen extends HomeScreenModel {
       child: Container(
         width: double.infinity,
         height: PhoneScreen(context).height * 0.22,
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            HorizontalCard(),
-            HorizontalCard(),
-            HorizontalCard(),
-            HorizontalCard(),
-          ],
-        ),
+        child: futureBuilder(),
       ),
+    );
+  }
+
+  Widget futureBuilder() {
+    return FutureBuilder<List<SweetModel>>(
+      future: getSweetList,
+      builder: (context, sweet) {
+        /*  print("sweet");
+        print(sweet.data);
+        print(sweet.data.length); */
+
+        if (sweet.connectionState == ConnectionState.waiting) {
+          return CircularProgressIndicator();
+        } else if (sweet.connectionState == ConnectionState.done) {
+          return ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: sweet.data.length,
+            itemBuilder: (context, index) {
+              return HorizontalCard(
+                sweet: sweet.data[index],
+              );
+            },
+          );
+        }
+      },
+    );
+  }
+
+  ListView horizontalListView() {
+    return ListView(
+      scrollDirection: Axis.horizontal,
+      children: [
+        HorizontalCard(),
+        HorizontalCard(),
+        HorizontalCard(),
+        HorizontalCard(),
+      ],
     );
   }
 

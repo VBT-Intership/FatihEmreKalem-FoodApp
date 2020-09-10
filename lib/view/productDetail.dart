@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:foodApp/model/sweetModel.dart';
 import '../utils/color.dart';
 import '../utils/size.dart';
 import 'package:dotted_border/dotted_border.dart';
 
 class ProductDetail extends StatelessWidget {
+  final SweetModel sweetProduct;
+
+  const ProductDetail({this.sweetProduct});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,26 +45,22 @@ class ProductDetail extends StatelessWidget {
       flex: 6,
       child: Container(
         width: double.infinity,
-        child: list(context),
+        child: ListView.builder(
+          padding: const EdgeInsets.only(right: 15, left: 15),
+          scrollDirection: Axis.horizontal,
+          itemCount: sweetProduct.image.length,
+          itemBuilder: (context, i) =>
+              productCardImage(context, sweetProduct.image[i]),
+        ),
       ),
     );
   }
-
-  Widget list(context) => ListView(
-        padding: const EdgeInsets.only(right: 15, left: 15),
-        scrollDirection: Axis.horizontal,
-        children: [
-          productCardImage(context),
-          productCardImage(context),
-          productCardImage(context),
-        ],
-      );
 
   Padding productCounterText() {
     return Padding(
       padding: const EdgeInsets.only(right: 15, left: 15),
       child: Text(
-        "2",
+        sweetProduct.item.toString(),
         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       ),
     );
@@ -113,7 +113,7 @@ class ProductDetail extends StatelessWidget {
 
   Text productHeaderTitle() {
     return Text(
-      "Ice Creamy",
+      "${sweetProduct.name}",
       style: TextStyle(
         fontSize: 28,
         fontWeight: FontWeight.bold,
@@ -144,13 +144,13 @@ class ProductDetail extends StatelessWidget {
   }
 
   Text productPrice() {
-    return Text("Rp 12.000",
+    return Text("${sweetProduct.price} tl",
         style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold));
   }
 
   Text productDesc() {
     return Text(
-      "lorem ipsum dolor sit amet, cosectetur elit, sed do eiusmod tempor",
+      sweetProduct.desc,
       style: TextStyle(color: Colors.grey[500], fontWeight: FontWeight.w600),
     );
   }
@@ -189,7 +189,7 @@ class ProductDetail extends StatelessWidget {
       color: Colors.blue,
       disabledColor: Colors.blue,
       child: Text(
-        "Gas, Lanjutkan",
+        "Hemen Al",
         style: TextStyle(color: WHITE),
       ),
       shape: RoundedRectangleBorder(
@@ -211,7 +211,7 @@ class ProductDetail extends StatelessWidget {
     );
   }
 
-  Widget productCardImage(BuildContext context) {
+  Widget productCardImage(BuildContext context, String url) {
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15),
       child: Container(
@@ -222,14 +222,13 @@ class ProductDetail extends StatelessWidget {
             color: RED,
             image: DecorationImage(
                 alignment: Alignment.center,
-                image: productCardImageLink(),
+                image: productCardImageLink(url),
                 fit: BoxFit.cover),
           )),
     );
   }
 
-  NetworkImage productCardImageLink() {
-    return NetworkImage(
-        "https://i.pinimg.com/originals/09/b8/5d/09b85d4229cf6fe420e5f9e7f2bbfd32.jpg");
+  NetworkImage productCardImageLink(url) {
+    return NetworkImage(url);
   }
 }

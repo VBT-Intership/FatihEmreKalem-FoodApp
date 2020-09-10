@@ -46,11 +46,11 @@
       "tag2": "Ağır"
     },
     {
-      "image": {
-        "link1": "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
-        "link2": "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
-        "link3": "link"
-      },
+      "image": [
+        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
+        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
+        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg"
+      ],
       "name": "lokma",
       "location": "istanbul",
       "item": 40,
