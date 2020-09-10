@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import '../utils/color.dart';
-import '../utils/size.dart';
+import '../../utils/color.dart';
+import '../../utils/size.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import '../../widgets/horizontalCard.dart';
+import '../../widgets/populerCard.dart';
 
-import '../widgets/horizontalCard.dart';
-import '../widgets/populerCard.dart';
+import '../../viewModel/homeViewModel.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends HomeScreenModel {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,19 +1,64 @@
 {
-  "food": {
-    "donat": {
-      "image": "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
-      "title": "Sweets",
-      "Item": "12"
+  "tatli": [
+    {
+      "image": [
+        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
+        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
+        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg"
+      ],
+      "name": "baklava",
+      "location": "Gaziantep",
+      "item": 25,
+      "price": 70,
+      "star": "3/3",
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+      "tag1": "şerbet",
+      "tag2": "Ağır"
     },
-    "iceCream": {
-      "image": "https://m.buro247.sg/images/lifestyle/ice-cream-cover.jpg",
-      "title": "Beverages",
-      "item": "42"
+    {
+      "image": [
+        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
+        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
+        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg"
+      ],
+      "name": "baklava",
+      "location": "İstanbul",
+      "item": 30,
+      "price": 20,
+      "star": "3/2",
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+      "tag1": "sütlü",
+      "tag2": "hafif"
     },
-    "banana": {
-      "image": "https://pbs.twimg.com/media/DrjlDZnX0AAK8xJ.jpg",
-      "title": "Beverages",
-      "item": "42"
+    {
+      "image": [
+        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
+        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
+        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg"
+      ],
+      "name": "baklava",
+      "location": "hatay",
+      "item": 35,
+      "price": 120,
+      "star": "3/2",
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+      "tag1": "Şerbetli",
+      "tag2": "Ağır"
+    },
+    {
+      "image": {
+        "link1": "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
+        "link2": "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
+        "link3": "link"
+      },
+      "name": "lokma",
+      "location": "istanbul",
+      "item": 40,
+      "price": 15,
+      "star": "3/1",
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+      "tag1": "şekersiz",
+      "tag2": "hafif"
     }
-  }
+  ]
 }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'screens/home.dart';
-import 'screens/productDetail.dart';
-
+import 'view/productDetail.dart';
+import 'view/home/Ihome.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -18,11 +17,11 @@ class MyApp extends StatelessWidget {
           if (settings.name == "/productDetail") {
             return pageRouteBuilder(ProductDetail());
           }
-          // unknown route
-          return MaterialPageRoute(builder: (context) => HomeScreen());
+          return MaterialPageRoute(builder: (context) => HomeScreenView());
         });
   }
 
+  //page slide animate
   PageRouteBuilder pageRouteBuilder(page) {
     return PageRouteBuilder(
       pageBuilder: (_, __, ___) => page,
