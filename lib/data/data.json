@@ -2,9 +2,9 @@
   "tatli": [
     {
       "image": [
-        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
-        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
-        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg"
+        "https://raw.githubusercontent.com/VBT-Intership/FatihEmreKalem-FoodApp/master/lib/assets/images/baklava/baklava.jpg",
+        "https://raw.githubusercontent.com/VBT-Intership/FatihEmreKalem-FoodApp/master/lib/assets/images/baklava/baklava2.jpg",
+        "https://raw.githubusercontent.com/VBT-Intership/FatihEmreKalem-FoodApp/master/lib/assets/images/baklava/baklava3.jpg"
       ],
       "name": "Baklava",
       "location": "Gaziantep",
@@ -17,9 +17,9 @@
     },
     {
       "image": [
-        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
-        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
-        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg"
+        "https://raw.githubusercontent.com/VBT-Intership/FatihEmreKalem-FoodApp/master/lib/assets/images/sutlac/sutlac.jpg",
+        "https://raw.githubusercontent.com/VBT-Intership/FatihEmreKalem-FoodApp/master/lib/assets/images/sutlac/sutlac2.jpg2",
+        "https://raw.githubusercontent.com/VBT-Intership/FatihEmreKalem-FoodApp/master/lib/assets/images/sutlac/sutlac3.jpg3"
       ],
       "name": "Sütlaç",
       "location": "İstanbul",
@@ -32,9 +32,9 @@
     },
     {
       "image": [
-        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
-        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
-        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg"
+        "https://raw.githubusercontent.com/VBT-Intership/FatihEmreKalem-FoodApp/master/lib/assets/images/kunefe/kunefe.jpg",
+        "https://raw.githubusercontent.com/VBT-Intership/FatihEmreKalem-FoodApp/master/lib/assets/images/kunefe/kuenfe2.jpg",
+        "https://raw.githubusercontent.com/VBT-Intership/FatihEmreKalem-FoodApp/master/lib/assets/images/baklava/baklava3.jpg"
       ],
       "name": "Künefe",
       "location": "Hatay",
@@ -47,9 +47,9 @@
     },
     {
       "image": [
-        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
-        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
-        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg"
+        "https://raw.githubusercontent.com/VBT-Intership/FatihEmreKalem-FoodApp/master/lib/assets/images/lokma/lokma.jpg",
+        "https://raw.githubusercontent.com/VBT-Intership/FatihEmreKalem-FoodApp/master/lib/assets/images/lokma/lokma2.jpg",
+        "https://raw.githubusercontent.com/VBT-Intership/FatihEmreKalem-FoodApp/master/lib/assets/images/lokma/lokma3.jpg"
       ],
       "name": "Lokma",
       "location": "İstanbul",

@@ -47,7 +47,7 @@ class PopulerCardTag extends StatelessWidget {
   }
 
   Color tagColorBG(String value) {
-    switch (value.toLowerCase()) {
+    switch (value) {
       case "Hafif":
         return SOFT_YELLOW;
         break;
@@ -64,7 +64,7 @@ class PopulerCardTag extends StatelessWidget {
   }
 
   Color tagColorText(String value) {
-    switch (value.toLowerCase()) {
+    switch (value) {
       case "Hafif":
         return DARK_YELLOW;
         break;
