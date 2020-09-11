@@ -8,7 +8,5 @@ abstract class HomeScreenModel extends State<HomeScreenView>
   void initState() {
     super.initState();
     getSweetList;
-    // print(getSweetList.then((value) => print(value.length)));
   }
-  //...
 }

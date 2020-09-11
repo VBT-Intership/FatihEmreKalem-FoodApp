@@ -47,35 +47,36 @@ class PopulerCardTag extends StatelessWidget {
   }
 
   Color tagColorBG(String value) {
-      switch (value.toLowerCase()) {
-        case "gorengan":
-          return SOFT_YELLOW;
-          break;
-        case "makanan ringan":
-          return SOFT_BLUE;
-          break;
-        default:
-          return SOFT_RED;
-          break;
-      }
+    switch (value.toLowerCase()) {
+      case "Hafif":
+        return SOFT_YELLOW;
+        break;
+      case "Şekersiz":
+        return SOFT_YELLOW;
+        break;
+      case "Sütlü":
+        return SOFT_BLUE;
+        break;
+      default:
+        return SOFT_RED;
+        break;
     }
+  }
 
   Color tagColorText(String value) {
     switch (value.toLowerCase()) {
-      case "gorengan":
+      case "Hafif":
         return DARK_YELLOW;
         break;
-      case "makanan ringan":
+      case "Şekersiz":
+        return DARK_YELLOW;
+        break;
+      case "Sütlü":
         return DARK_BLUE;
         break;
       default:
         return DARK_RED;
         break;
     }
-    
-
-    
   }
 }
-
-

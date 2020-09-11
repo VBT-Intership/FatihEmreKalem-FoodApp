@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import '../utils/size.dart';
 import '../utils/color.dart';
 import 'populerCardTag.dart';
+import '../model/sweetModel.dart';
 
 class PopulerCard extends StatelessWidget {
-  const PopulerCard({Key key}) : super(key: key);
+  final SweetModel sweet;
+
+  const PopulerCard({this.sweet});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +15,7 @@ class PopulerCard extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, '/productDetail');
+          Navigator.pushNamed(context, '/productDetail', arguments: sweet);
         },
         child: Container(
           decoration: BoxDecoration(
@@ -47,8 +50,7 @@ class PopulerCard extends StatelessWidget {
   }
 
   NetworkImage get networkImage {
-    return NetworkImage(
-        "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg");
+    return NetworkImage(sweet.image[0]);
   }
 
   Expanded populerCardAbout() {
@@ -72,13 +74,13 @@ class PopulerCard extends StatelessWidget {
 
   Text get populerCardHeader {
     return Text(
-      "Banana Goreng",
+      sweet.name,
       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
     );
   }
 
   PopulerCardTag get populerCardTags {
-    return PopulerCardTag(tagText1: "Gorengan", tagText2: "Makanan Ringan");
+    return PopulerCardTag(tagText1: sweet.tag1, tagText2: sweet.tag2);
   }
 
   Row get populerCardDetail {
@@ -88,11 +90,11 @@ class PopulerCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Warung buyayuk",
+          sweet.location,
           style: TextStyle(color: GRAY_TEXT),
         ),
         Text(
-          "Rp. 2.500",
+          "${sweet.price} tl",
           style: TextStyle(fontWeight: FontWeight.bold),
         )
       ],

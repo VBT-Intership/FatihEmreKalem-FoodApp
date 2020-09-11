@@ -6,13 +6,13 @@
         "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
         "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg"
       ],
-      "name": "baklava",
+      "name": "Baklava",
       "location": "Gaziantep",
       "item": 25,
       "price": 70,
       "star": "3/3",
       "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
-      "tag1": "şerbet",
+      "tag1": "Şerbet",
       "tag2": "Ağır"
     },
     {
@@ -21,14 +21,14 @@
         "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
         "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg"
       ],
-      "name": "baklava",
+      "name": "Sütlaç",
       "location": "İstanbul",
       "item": 30,
       "price": 20,
       "star": "3/2",
       "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
-      "tag1": "sütlü",
-      "tag2": "hafif"
+      "tag1": "Sütlü",
+      "tag2": "Hafif"
     },
     {
       "image": [
@@ -36,8 +36,8 @@
         "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
         "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg"
       ],
-      "name": "baklava",
-      "location": "hatay",
+      "name": "Künefe",
+      "location": "Hatay",
       "item": 35,
       "price": 120,
       "star": "3/2",
@@ -51,14 +51,14 @@
         "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg",
         "https://www.theflavorbender.com/wp-content/uploads/2014/09/Simpsons-Doughnuts-4238-Copy-1.jpg"
       ],
-      "name": "lokma",
-      "location": "istanbul",
+      "name": "Lokma",
+      "location": "İstanbul",
       "item": 40,
       "price": 15,
       "star": "3/1",
       "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
-      "tag1": "şekersiz",
-      "tag2": "hafif"
+      "tag1": "Şekersiz",
+      "tag2": "Hafif"
     }
   ]
 }

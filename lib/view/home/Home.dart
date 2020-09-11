@@ -103,31 +103,23 @@ class HomeScreen extends HomeScreenModel {
         print(sweet.data.length); */
 
         if (sweet.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
+          return Center(child: CircularProgressIndicator());
         } else if (sweet.connectionState == ConnectionState.done) {
-          return ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: sweet.data.length,
-            itemBuilder: (context, index) {
-              return HorizontalCard(
-                sweet: sweet.data[index],
-              );
-            },
-          );
+          return horizontalListView(sweet);
         }
       },
     );
   }
 
-  ListView horizontalListView() {
-    return ListView(
+  ListView horizontalListView(AsyncSnapshot<List<SweetModel>> sweet) {
+    return ListView.builder(
       scrollDirection: Axis.horizontal,
-      children: [
-        HorizontalCard(),
-        HorizontalCard(),
-        HorizontalCard(),
-        HorizontalCard(),
-      ],
+      itemCount: sweet.data.length,
+      itemBuilder: (context, index) {
+        return HorizontalCard(
+          sweet: sweet.data[index],
+        );
+      },
     );
   }
 
@@ -176,16 +168,32 @@ class HomeScreen extends HomeScreenModel {
 
   Expanded popularaCardLists() {
     return Expanded(
-      child: Container(
-        child: ListView(
-          children: [
-            PopulerCard(),
-            PopulerCard(),
-            PopulerCard(),
-            PopulerCard(),
-          ],
-        ),
-      ),
+      child: Container(child: futureBuilderPopulerCard()),
+    );
+  }
+
+  Widget futureBuilderPopulerCard() {
+    return FutureBuilder<List<SweetModel>>(
+      future: getSweetList,
+      builder: (context, sweet) {
+        if (sweet.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
+        } else if (sweet.connectionState == ConnectionState.done) {
+          return horizontalListViewPopulerCard(sweet);
+        }
+      },
+    );
+  }
+
+  ListView horizontalListViewPopulerCard(
+      AsyncSnapshot<List<SweetModel>> sweet) {
+    return ListView.builder(
+      itemCount: sweet.data.length,
+      itemBuilder: (context, index) {
+        return PopulerCard(
+          sweet: sweet.data[index],
+        );
+      },
     );
   }
 }

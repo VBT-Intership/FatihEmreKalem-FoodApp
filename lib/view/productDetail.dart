@@ -4,10 +4,16 @@ import '../utils/color.dart';
 import '../utils/size.dart';
 import 'package:dotted_border/dotted_border.dart';
 
-class ProductDetail extends StatelessWidget {
+class ProductDetail extends StatefulWidget {
   final SweetModel sweetProduct;
 
   const ProductDetail({this.sweetProduct});
+
+  @override
+  _ProductDetailState createState() => _ProductDetailState();
+}
+
+class _ProductDetailState extends State<ProductDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,9 +54,9 @@ class ProductDetail extends StatelessWidget {
         child: ListView.builder(
           padding: const EdgeInsets.only(right: 15, left: 15),
           scrollDirection: Axis.horizontal,
-          itemCount: sweetProduct.image.length,
+          itemCount: widget.sweetProduct.image.length,
           itemBuilder: (context, i) =>
-              productCardImage(context, sweetProduct.image[i]),
+              productCardImage(context, widget.sweetProduct.image[i]),
         ),
       ),
     );
@@ -60,7 +66,7 @@ class ProductDetail extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 15, left: 15),
       child: Text(
-        sweetProduct.item.toString(),
+        widget.sweetProduct.item.toString(),
         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       ),
     );
@@ -103,7 +109,7 @@ class ProductDetail extends StatelessWidget {
           children: [
             productHeaderTitle(),
             Spacer(),
-            productStars(),
+            productStars("2/3"),
           ],
         ),
         productPrice(),
@@ -113,7 +119,7 @@ class ProductDetail extends StatelessWidget {
 
   Text productHeaderTitle() {
     return Text(
-      "${sweetProduct.name}",
+      "${widget.sweetProduct.name}",
       style: TextStyle(
         fontSize: 28,
         fontWeight: FontWeight.bold,
@@ -121,36 +127,42 @@ class ProductDetail extends StatelessWidget {
     );
   }
 
-  Row productStars() {
-    return Row(
-      children: [
-        Icon(
+  Widget productStars(rating) {
+    var starsLength = int.parse(rating[2]);
+    var star = int.parse(rating[0]);
+    print(star);
+
+    List<Widget> starsList = new List<Widget>();
+
+    for (var i = 0; i < starsLength; i++) {
+      if (i < star) {
+        starsList.add(Icon(
           Icons.star,
           size: 16,
           color: DARK_RED,
-        ),
-        Icon(
-          Icons.star,
-          size: 16,
-          color: DARK_RED,
-        ),
-        Icon(
+        ));
+      } else {
+        starsList.add(Icon(
           Icons.star,
           size: 16,
           color: GRAY_TEXT,
-        ),
-      ],
+        ));
+      }
+    }
+
+    return Row(
+      children: starsList,
     );
   }
 
   Text productPrice() {
-    return Text("${sweetProduct.price} tl",
+    return Text("${widget.sweetProduct.price} tl",
         style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold));
   }
 
   Text productDesc() {
     return Text(
-      sweetProduct.desc,
+      widget.sweetProduct.desc,
       style: TextStyle(color: Colors.grey[500], fontWeight: FontWeight.w600),
     );
   }
@@ -168,9 +180,21 @@ class ProductDetail extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  counterButton(Icons.exposure_neg_1),
+                  GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          widget.sweetProduct.item--;
+                        });
+                      },
+                      child: counterButton(Icons.exposure_neg_1)),
                   productCounterText(),
-                  counterButton(Icons.exposure_plus_1),
+                  GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          widget.sweetProduct.item++;
+                        });
+                      },
+                      child: counterButton(Icons.exposure_plus_1))
                 ],
               ),
             ),
